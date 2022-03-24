@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Menu from "./Menu";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -6,9 +7,10 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div>
+    <div className="w-screen h-screen flex flex-col">
       <Header />
-      {children}
+      <div className="flex-1 px-4">{children}</div>
+      <Menu />
     </div>
   );
 }
