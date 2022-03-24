@@ -1,15 +1,23 @@
+import { NavLink } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
+import { RoutePatterns } from "../RoutePatterns";
 
 export default function Dashboard() {
   return (
     <Layout>
       <div className="flex w-full space-x-8 justify-center">
-        <button className="bg-green-600 rounded text-white p-2 w-40">
+        <NavLink
+          to={RoutePatterns.AddEvent}
+          className="bg-green-600 rounded text-white p-2 w-40 text-center"
+        >
           Add Event
-        </button>
-        <button className="bg-teal-700 rounded text-white p-2 w-40">
+        </NavLink>
+        <NavLink
+          to={RoutePatterns.AddTask}
+          className="bg-teal-700 rounded text-white p-2 w-40 text-center"
+        >
           Add Task
-        </button>
+        </NavLink>
       </div>
 
       <div className="bg-teal-200 w-full p-2 rounded mt-20">Upcoming Tasks</div>

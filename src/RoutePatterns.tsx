@@ -5,4 +5,7 @@ export enum RoutePatterns {
   Inventory = "/inventory",
   Financial = "/financial",
   Analytics = "/analytics",
+
+  AddEvent = "/add-event",
+  AddTask = "/add-task",
 }

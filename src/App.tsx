@@ -1,4 +1,7 @@
+import "rc-dropdown/assets/index.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AddEvent from "./pages/addEvent";
+import AddTask from "./pages/addTask";
 import Analytics from "./pages/analytics";
 import Automation from "./pages/automation";
 import CropManagement from "./pages/cropManagement";
@@ -20,6 +23,9 @@ export default function App() {
         <Route path={RoutePatterns.Inventory} element={<Inventory />} />
         <Route path={RoutePatterns.Financial} element={<Financial />} />
         <Route path={RoutePatterns.Analytics} element={<Analytics />} />
+
+        <Route path={RoutePatterns.AddEvent} element={<AddEvent />} />
+        <Route path={RoutePatterns.AddTask} element={<AddTask />} />
       </Routes>
     </Router>
   );
