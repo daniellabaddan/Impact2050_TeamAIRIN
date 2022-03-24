@@ -9,7 +9,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="w-screen h-screen flex flex-col">
       <Header />
-      <div className="flex-1 px-4">{children}</div>
+      <div className="flex-1 px-4 mt-8 mb-4">{children}</div>
       <Menu />
     </div>
   );

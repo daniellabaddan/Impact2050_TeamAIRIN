@@ -1,52 +1,50 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   AnalyticsIcon,
   CropIcon,
   DashboardIcon,
-  DropletIcon,
   InventoryIcon,
-  MoneyIcon,
 } from "../../assets/icons";
 import { RoutePatterns } from "../../RoutePatterns";
 
 export default function Header() {
   return (
-    <ul className="flex space-x-3 justify-around items-center py-3 border-t-2 border-teal-400">
-      <Link to={RoutePatterns.Dashboard}>
-        <li className="w-7 border">
-          <DashboardIcon />
+    <ul className="flex justify-around items-center py-3 border-t-2 border-teal-400">
+      <NavLink to={RoutePatterns.Dashboard}>
+        <li className="flex flex-col items-center space-y-2">
+          <div className="h-7 w-7">
+            <DashboardIcon />
+          </div>
+          <span className="text-center text-sm">Dashboard</span>
         </li>
-      </Link>
+      </NavLink>
 
-      <Link to={RoutePatterns.CropManagement}>
-        <li className="w-7">
-          <CropIcon />
+      <NavLink to={RoutePatterns.CropManagement}>
+        <li className="flex flex-col items-center space-y-2 ">
+          <div className="h-7 w-7">
+            <CropIcon />
+          </div>
+          <span className="text-center text-sm">Crop</span>
         </li>
-      </Link>
+      </NavLink>
 
-      <Link to={RoutePatterns.Automation}>
-        <li className="w-7">
-          <DropletIcon />
+      <NavLink to={RoutePatterns.Financial}>
+        <li className="flex flex-col items-center space-y-2 ">
+          <div className="h-7 w-7">
+            <InventoryIcon />
+          </div>
+          <span className="text-center text-sm">Finance</span>
         </li>
-      </Link>
+      </NavLink>
 
-      <Link to={RoutePatterns.Inventory}>
-        <li className="w-7">
-          <InventoryIcon />
+      <NavLink to={RoutePatterns.Analytics}>
+        <li className="flex flex-col items-center space-y-2 ">
+          <div className="h-7 w-7">
+            <AnalyticsIcon />
+          </div>
+          <span className="text-center text-sm">Analyze</span>
         </li>
-      </Link>
-
-      <Link to={RoutePatterns.Financial}>
-        <li className="w-7">
-          <MoneyIcon />
-        </li>
-      </Link>
-
-      <Link to={RoutePatterns.Analytics}>
-        <li className="w-7">
-          <AnalyticsIcon />
-        </li>
-      </Link>
+      </NavLink>
     </ul>
   );
 }
