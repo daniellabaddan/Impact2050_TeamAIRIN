@@ -1,59 +1,47 @@
-import Dropdown from "rc-dropdown";
-import Menu, { Item as MenuItem } from "rc-menu";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import Button from "../components/Form/Button";
+import Dropdown from "../components/Form/Dropdown";
+import TextArea from "../components/Form/TextArea";
 import Layout from "../components/Layout/Layout";
+import { categoryOptions } from "./config";
 
 export default function AddEvent() {
-  const [visible, setVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  const onSelect = ({ key }: { key: string }) => {
-    setSelectedCategory(key);
-    setVisible(false);
+  const handleSubmit = () => {
+    alert("Submit form");
   };
 
-  const menu = (
-    <Menu onSelect={onSelect}>
-      <MenuItem key="precipitation">Precipitation</MenuItem>
-      <MenuItem key="crop-loss">Crop Loss</MenuItem>
-    </Menu>
-  );
+  const handleSelectCategory = (key: string) => {
+    const selectedOption = categoryOptions.find(
+      (category) => category.key === key
+    );
+
+    if (selectedOption) {
+      setSelectedCategory(selectedOption.label);
+    }
+  };
 
   return (
     <Layout>
       <div className="flex flex-col space-y-10">
-        <h1>Add Event</h1>
+        <h2 className="text-xl font-bold text-zinc-500">Add Event</h2>
 
-        <div className="flex flex-col space-x-5">
-          <h4>Category</h4>
-          <Dropdown
-            trigger={["click"]}
-            overlay={menu}
-            animation="slide-up"
-            visible={visible}
-            onVisibleChange={setVisible}
-          >
-            <button className="bg-zinc-100">
-              {selectedCategory || "Select"}
-            </button>
-          </Dropdown>
-        </div>
+        <Dropdown
+          title="Category"
+          options={categoryOptions}
+          value={selectedCategory}
+          handleChange={handleSelectCategory}
+        />
 
-        <div className="flex flex-col space-x-5">
-          <h4>Description</h4>
-          <textarea className="py-4" placeholder="Enter category" />
-        </div>
-
-        <div className="flex justify-between space-x-8">
-          <button className="bg-green-600 rounded text-white p-2 text-center w-1/2">
-            Save
-          </button>
-
-          <button className="bg-zinc-200 rounded p-2text-center w-1/2">
-            Cancel
-          </button>
-        </div>
+        <TextArea label="Description" placeholder="Enter description" />
       </div>
+
+      <Button onClick={handleSubmit} icon={<FontAwesomeIcon icon={faCheck} />}>
+        Save
+      </Button>
     </Layout>
   );
 }
