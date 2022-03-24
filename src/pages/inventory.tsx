@@ -1,9 +1,9 @@
 import Layout from "../components/Layout/Layout";
 
-export default function Financial() {
+export default function Inventory() {
   return (
     <Layout>
-      <h1>Financial</h1>
+      <h1>Inventory</h1>
     </Layout>
   );
 }
